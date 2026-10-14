@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>heytea × 野原しんのすけ</title>
+<style>
+  :root{
+    --white:#ffffff;
+    --ink:#1a1a1a;
+    --red:#E62117;
+    --muted:#9a9a9a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    background:var(--white);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{display:block;user-select:none;-webkit-user-drag:none;}
+
+  /* ================= 锁定页眉 =================
+     logo + 导航文字固定在顶部，半透明毛玻璃，
+     横条自身预留约 64px 高度，正文各页顶部再让出空间 */
+  .topbar{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    height:64px;padding:0 4vw;
+    display:flex;align-items:center;justify-content:space-between;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(0,0,0,.05);
+  }
+  .topbar .logo{height:30px;width:auto;}
+  .topbar nav{display:flex;gap:clamp(24px,4vw,52px);}
+  .topbar nav a{
+    font-size:14px;letter-spacing:.14em;color:var(--ink);
+    text-decoration:none;opacity:.85;transition:opacity .25s;
+  }
+  .topbar nav a:hover{opacity:1;}
+  .topbar nav a::after{content:"";display:block;height:1.5px;width:0;background:var(--red);transition:width .3s;margin-top:3px;}
+  .topbar nav a:hover::after{width:100%;}
+
+  main{padding-top:64px;}  /* 为锁定页眉预留空间 */
+
+  /* ================= 第 1 页（按原稿定位） ================= */
+  .page{
+    position:relative;height:calc(100vh - 64px);min-height:620px;
+    background:var(--white);overflow:hidden;
+  }
+
+  .p1 .cup{position:absolute;left:12.6%;top:41%;height:14.5vh;min-height:90px;}
+  .p1 .cup img{height:100%;width:auto;}
+
+  .p1 .title{position:absolute;left:45.5%;top:47.5%;width:23vw;min-width:250px;}
+  .p1 .title img{width:100%;height:auto;}
+
+  .p1 .shin{position:absolute;left:73%;top:30%;width:17.2vw;min-width:170px;}
+  .p1 .shin img{width:100%;height:auto;}
+
+  .p1 .arrow{position:absolute;left:92.4%;top:45.5%;width:5.2vw;min-width:60px;}
+  .p1 .arrow img{width:100%;height:auto;}
+
+  /* ================= 第 2 页：按要求留白 ================= */
+  .p2{background:var(--white);}
+
+  /* ================= 第 3 页：三杯饮品（按原稿定位） ================= */
+  .p3 .drink{position:absolute;}
+  .p3 .drink img{height:100%;width:auto;}
+  .p3 .d1{left:16.3%;bottom:34.3%;height:25.9vh;min-height:150px;}
+  .p3 .d2{left:47.6%;bottom:33.3%;height:26.7vh;min-height:155px;}
+  .p3 .d3{left:76.6%;bottom:32.9%;height:28.9vh;min-height:165px;}
+
+  /* ================= 移动端适配 ================= */
+  @media(max-width:760px){
+    .topbar nav{gap:18px;}
+    .topbar nav a{font-size:12px;letter-spacing:.06em;}
+    .p1 .cup{left:6%;top:30%;height:11vh;}
+    .p1 .title{left:50%;transform:translateX(-50%);top:12%;width:64vw;}
+    .p1 .shin{left:auto;right:5%;top:42%;width:44vw;}
+    .p1 .arrow{left:auto;right:4%;top:30%;width:16vw;}
+    .p3 .d1{left:8%;bottom:38%;height:22vh;}
+    .p3 .d2{left:39%;bottom:37%;height:22.5vh;}
+    .p3 .d3{left:68%;bottom:36%;height:24vh;}
+  }
+</style>
+</head>
+<body>
+
+<!-- 锁定页眉：logo + 导航 -->
+<header class="topbar">
+  <img class="logo" src="assets/logo.png" alt="logo">
+  <nav>
+    <a href="#p1">品牌故事</a>
+    <a href="#p3">系列饮品</a>
+    <a href="#p2">查看周边</a>
+  </nav>
+</header>
+
+<main>
+  <!-- 第 1 页 -->
+  <section class="page p1" id="p1">
+    <div class="cup"><img src="assets/cup.png" alt="手绘奶茶"></div>
+    <div class="title"><img src="assets/title.png" alt="heytea × 野原しんのすけ"></div>
+    <div class="shin"><img src="assets/shin.png" alt="蜡笔小新"></div>
+    <div class="arrow"><img src="assets/arrow.png" alt="点击小新"></div>
+  </section>
+
+  <!-- 第 2 页：留白（预留） -->
+  <section class="page p2" id="p2"></section>
+
+  <!-- 第 3 页 -->
+  <section class="page p3" id="p3">
+    <div class="drink d1"><img src="assets/drink1.png" alt="白色饮品"></div>
+    <div class="drink d2"><img src="assets/drink2.png" alt="红色饮品"></div>
+    <div class="drink d3"><img src="assets/drink3.png" alt="黄色饮品"></div>
+  </section>
+</main>
+
+</body>
+</html>
